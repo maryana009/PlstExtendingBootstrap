@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+	<title>Genres</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet">
+	<link href="Content/Site.css" rel="stylesheet">
+    <link href="Content/pdsa-sidebar.css" rel="stylesheet">
+	<link href="Content/pdsa-summary-block.css" rel="stylesheet">
+	<link href="Content/pdsa-readme-box.css" rel="stylesheet">
+    <link href="Content/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+		.pdsa-readme-box {
+			min-height: 24em;
+		}
+		.checkbox .btn,
+		.checkbox-inline .btn {
+			padding-left:2em;
+			min-width:7em;
+		}
+
+		.checkbox-inline  {
+			margin-left: -1.5em;
+			min-width:7em;
+		}
+		.checkbox label, .checkbox-inline label {
+			text-align: left;
+		}
+
+		.pdsa-submit-progress{
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			z-index:1;
+			height: 6em;
+			width: 20em;
+			margin-left: -10em;
+			padding-top: 2.5em;
+			padding-left: 2.1em;
+			background-color:black;
+			color: white;
+			border-radius: 0.4em;
+			-moz-border-radius: 0.4em;
+			-webkit-border-radius: 0.4em;
+			box-shadow: 0.4em 0.4em rgba(0,0,0, 0.6);
+			-moz-box-shadow: 0.4em 0.4em rgba(0,0,0, 0.6);
+			-webkit-box-shadow: 0.4em 0.4em rgba(0,0,0, 0.6);
+
+		}
+		.pdsa-submit-progress-bg {
+			background-color: lightgray;
+			opacity: 0.5;
+		}
+
+		/*Modified for Font Awsome spinner*/
+		.pdsa-submit-progress{
+			padding-top: 2em;
+			width: 23em;
+			margin-left: -11.5em;
+		}
+
+		.pdsa-submit-progress i {
+			margin-right: 0.5em;
+		}
+
+    </style>
+</head>
+<body>
+	<div class="container">
+        <div class="row">
+    		<header>
+    			<a href="Default.html">My Tunes</a>
+    		</header>
+        </div>
+		<nav id="sideNavParent" class="pdsa-sn-wrapper">
+			<ul>
+				<li class="pdsa-sn-brand">
+					<a href="Default.html" class="visible-sm visible-md visible-lg">Music</a>
+				</li>
+				<li class="pdsa-sn-brand">
+					<a href="Default.html">
+                        <span class="visible-sm visible-md visible-lg">Home</span>
+                        <i class="glyphicon glyphicon-home  visible-xs-block"></i>
+                    </a>
+				</li>
+				<li class="pdsa-sn-brand">
+                    <a href="#" data-toggle="collapse" data-target="#ulGenres">
+                        <span class="visible-sm visible-md visible-lg">Genres&nbsp;<b class="caret"></b></span>
+                        <i class="glyphicon glyphicon-globe visible-xs-block"></i>
+                    </a>
+                    <div class="visible-sm visible-md visible-lg">
+                        <ul id="ulGenres" class="collapse" data-parent="#sideNavParent">
+                            <li><a href="#">All Genres</a></li>
+                            <li><a href="#">Jazz</a></li>
+                            <li><a href="#">Country</a></li>
+                            <li><a href="#">Rock</a></li>
+                        </ul>
+                    </div>
+				</li>
+                <li class="pdsa-sn-brand">
+                    <a href="#">
+                        <span class="visible-sm visible-md visible-lg">Playlists</span>
+                        <i class="glyphicon glyphicon-list visible-xs-block"></i>
+                    </a>
+				</li>
+                <li class="pdsa-sn-brand">
+                    <a href="#">
+                        <span class="visible-sm visible-md visible-lg">Songs</span>
+                        <i class="glyphicon glyphicon-music visible-xs-block"></i>
+                    </a>
+                </li>
+                <li class="pdsa-sn-brand">
+                    <a href="#">
+                        <span class="visible-sm visible-md visible-lg">Downloads</span>
+                        <i class="glyphicon glyphicon-download visible-xs-block"></i>
+                    </a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+
+	<div class="pdsa-submit-progress hidden">
+		<i class="fa fa-2x fa-spinner fa-spin"></i>
+		<label>Please wait while downloading...</label>
+	</div>
+
+    <div class="container body-content">
+		<div class="row">
+			<div class="col-xs-12 col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Songs to download</h3>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th>Song Name</th>
+										<th>Artist</th>
+										<th>Album</th>
+										<th>Year</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>I got the Boy</td>
+										<td>Jana Kramer</td>
+										<td>I got the Boy (Single)</td>
+										<td>2015</td>
+									</tr>
+									<tr>
+										<td>Too Yong to feel this old</td>
+										<td>You me at six</td>
+										<td>Cavalier Youth</td>
+										<td>2014</td>
+									</tr>
+									<tr>
+										<td>Chicago</td>
+										<td>I Fight Dragons</td>
+										<td>The Near Future</td>
+										<td>2014</td>
+									</tr>
+								</tbody>
+							</table>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<button type="submit" id="submitButton"
+						class="btn btn-primary"
+						onclick="return DisplayProgressMessage(this, 'Downloading...')">
+						Download
+					</button>
+				</div>
+			</div>
+		</div>
+    </div>
+
+	<script src="Scripts/jquery.min.js"></script>
+	<script src="Scripts/bootstrap.min.js"></script>
+	<script>
+		function DisplayProgressMessage (ctl, msg) {
+			$(ctl).prop('disabled', true)
+				.text(msg);
+
+			// setTimeOut( function() {
+			// 	$('.pdsa-submit-progress').removeClass('hidden');
+			// }, 0);
+
+			$('.pdsa-submit-progress').removeClass('hidden');
+			$("body").addClass("pdsa-submit-progress-bg");
+
+			return true;
+		}
+	</script>
+</body>
+</html>

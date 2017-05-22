@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+	<title>Genres</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet">
+	<link href="Content/Site.css" rel="stylesheet">
+    <link href="Content/pdsa-sidebar.css" rel="stylesheet">
+	<link href="Content/pdsa-summary-block.css" rel="stylesheet">
+    <link href="Content/pdsa-readme-box.css" rel="stylesheet">
+
+    <style>
+		.pdsa-readme-box {
+			min-height: 24em;
+		}
+		.checkbox .btn,
+		.checkbox-inline .btn {
+			padding-left:2em;
+			min-width:7em;
+		}
+
+		.checkbox-inline  {
+			margin-left: -1.5em;
+			min-width:7em;
+		}
+		.checkbox label, .checkbox-inline label {
+			text-align: left;
+		}
+    </style>
+</head>
+<body>
+	<div class="container">
+        <div class="row">
+    		<header>
+    			<a href="Default.html">My Tunes</a>
+    		</header>
+        </div>
+		<nav id="sideNavParent" class="pdsa-sn-wrapper">
+			<ul>
+				<li class="pdsa-sn-brand">
+					<a href="Default.html" class="visible-sm visible-md visible-lg">Music</a>
+				</li>
+				<li class="pdsa-sn-brand">
+					<a href="Default.html">
+                        <span class="visible-sm visible-md visible-lg">Home</span>
+                        <i class="glyphicon glyphicon-home  visible-xs-block"></i>
+                    </a>
+				</li>
+				<li class="pdsa-sn-brand">
+                    <a href="#" data-toggle="collapse" data-target="#ulGenres">
+                        <span class="visible-sm visible-md visible-lg">Genres&nbsp;<b class="caret"></b></span>
+                        <i class="glyphicon glyphicon-globe visible-xs-block"></i>
+                    </a>
+                    <div class="visible-sm visible-md visible-lg">
+                        <ul id="ulGenres" class="collapse" data-parent="#sideNavParent">
+                            <li><a href="#">All Genres</a></li>
+                            <li><a href="#">Jazz</a></li>
+                            <li><a href="#">Country</a></li>
+                            <li><a href="#">Rock</a></li>
+                        </ul>
+                    </div>
+				</li>
+                <li class="pdsa-sn-brand">
+                    <a href="#">
+                        <span class="visible-sm visible-md visible-lg">Playlists</span>
+                        <i class="glyphicon glyphicon-list visible-xs-block"></i>
+                    </a>
+				</li>
+                <li class="pdsa-sn-brand">
+                    <a href="#">
+                        <span class="visible-sm visible-md visible-lg">Songs</span>
+                        <i class="glyphicon glyphicon-music visible-xs-block"></i>
+                    </a>
+                </li>
+                <li class="pdsa-sn-brand">
+                    <a href="#">
+                        <span class="visible-sm visible-md visible-lg">Downloads</span>
+                        <i class="glyphicon glyphicon-download visible-xs-block"></i>
+                    </a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+    <div class="container body-content">
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<h3>Display the following genres...</h3>
+				<div class="well well-sm">
+					<div class="checkbox-inline">
+						<input type="checkbox"/>Jazz
+					</div>
+					<div class="checkbox-inline">
+						<input type="checkbox"/>Country
+					</div>
+					<div class="checkbox-inline">
+						<input type="checkbox"/>Rock
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<h3>Display the following genres...</h3>
+				<div class="well well-sm">
+					<div class="checkbox-inline">
+						<label class="btn btn-default">
+							<input type="checkbox"/>Jazz
+						</label>
+					</div>
+					<div class="checkbox-inline">
+						<label class="btn btn-default">
+							<input type="checkbox"/>Country
+						</label>
+					</div>
+					<div class="checkbox-inline">
+						<label class="btn btn-default">
+							<input type="checkbox"/>Rock
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<h3>Display the following genres...</h3>
+				<div class="well well-sm">
+					<div class="btn-group" data-toggle="buttons">
+						<label class="btn btn-default">
+							<span class="glyphicon glyphicon-unchecked"></span>
+							<input type="checkbox" checked="checked"/>Jazz
+						</label>
+						<label class="btn btn-default">
+							<span class="glyphicon glyphicon-unchecked"></span>
+							<input type="checkbox"/>Country
+						</label>
+						<label class="btn btn-default">
+							<span class="glyphicon glyphicon-unchecked"></span>
+							<input type="checkbox"/>Rock
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+	<script src="Scripts/jquery.min.js"></script>
+	<script src="Scripts/bootstrap.min.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			$("[type='checkbox']").on('change', function (){
+				if($(this).prop('checked')) {
+					$(this).prev()
+					.removeClass('glyphicon-unchecked')
+					.addClass('glyphicon-ok-circle')
+				} else {
+					$(this).prev()
+					.removeClass('glyphicon-ok-circle')
+					.addClass('glyphicon-unchecked')
+				}
+			})
+
+			$("input:checked").prev()
+				.removeClass('glyphicon-unchecked')
+				.addClass('glyphicon-ok-circle')
+
+			$("input:checked").parent()
+				.addClass('active')
+	})
+	</script>
+</body>
+</html>
